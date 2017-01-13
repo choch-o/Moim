@@ -9,9 +9,9 @@ export default class Home extends Component {
 
 	}
 
-  _navigate(name) {
+  _navigate(scene, name) {
     this.props.navigator.push({
-      name: 'Attendance',
+      name: scene,
       passProps: {
       	name: name
       }
@@ -27,12 +27,14 @@ export default class Home extends Component {
 	    <View style={{ flex: 1 }} >
 	    	<TouchableHighlight
 	    		style={ this.state.pressStatus ? styles.buttonPress : styles.lightblue }
-	    		onPress={ () => this._navigate('Hello World') } >
+	    		onPress={ () => this._navigate('Attendance', 'Hello World') }>
 	    		<Text style={textStyle}>출석체크</Text>
 	    	</TouchableHighlight>
-	    	<View style={styles.darkblue}>
+	    	<TouchableHighlight
+	    		style={ this.state.pressStatus ? styles.buttonPress : styles.darkblue}
+	    		onPress={ () => this._navigate('Vote', 'Hello Voters') }>
 	    		<Text style={textStyle}>투표</Text>
-	    	</View>
+	    	</TouchableHighlight>
 	    </View>     
 	  );
 	}

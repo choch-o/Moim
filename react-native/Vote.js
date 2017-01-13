@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 
-export default class Attendance extends Component {
+export default class Vote extends Component {
   static get defaultProps() {
     return {
-      title: 'Attendance'
+      title: 'Vote'
     };
   }
 
@@ -21,6 +21,6 @@ export default class Attendance extends Component {
   }
 }
 
-Attendance.propTypes = {
+Vote.propTypes = {
   title: PropTypes.string.isRequired,
 };

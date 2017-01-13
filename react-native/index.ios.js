@@ -15,6 +15,7 @@ import {
 
 import Home from './Home';
 import Attendance from './Attendance';
+import Vote from './Vote';
 
 export default class Moim extends Component {
 
@@ -24,6 +25,9 @@ export default class Moim extends Component {
     }
     if (route.name == 'Attendance') {
       return <Attendance navigator={navigator} {...route.passProps} />
+    }
+    if (route.name == 'Vote') {
+      return <Vote navigator={navigator} {...route.passProps} />
     }
   }
 
