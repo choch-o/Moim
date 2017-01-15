@@ -9,24 +9,34 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
 
+import Home from './Home';
+import Attendance from './Attendance';
+import Vote from './Vote';
+
 export default class Moim extends Component {
+  
+  renderScene(route, navigator) {
+    if (route.name == 'Home') {
+      return <Home navigator={navigator} {...route.passProps} />
+    }
+    if (route.name == 'Attendance') {
+      return <Attendance navigator={navigator} {...route.passProps} />
+    }
+    if (route.name == 'Vote') {
+      return <Vote navigator={navigator} {...route.passProps} />
+    }
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Navigator
+        style={{ flex: 1 }}
+        initialRoute={{ name: 'Home' }}
+        renderScene={ this.renderScene } />
     );
   }
 }
