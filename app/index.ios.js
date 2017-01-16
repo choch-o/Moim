@@ -13,13 +13,48 @@ import {
   Navigator
 } from 'react-native';
 
+import * as firebase from 'firebase';
+
 import Home from './Home';
 import Attendance from './Attendance';
 import Vote from './Vote';
+import Login from './Login';
+import Firebase from './includes/firebase/firebase';
 
 export default class Moim extends Component {
 
+  constructor(props) {
+    super(props)
+
+    Firebase.initialise()
+
+    this.getInitialView()
+
+    this.state = {
+      userLoaded: false,
+      initialView: null
+    };
+
+    this.getInitialView = this.getInitialView.bind(this);
+  }
+
+  getInitialView() {
+    firebase.auth().onAuthStateChanged((user) => {
+
+      let initialView = user ? "Home" : "Login";
+      console.log(initialView)
+      console.log("GET INITIAL VIEW")
+
+      this.setState({
+        userLoaded: true,
+        initialView: initialView
+      })
+    });
+
+  }
+
   renderScene(route, navigator) {
+    console.log(route.name)
     if (route.name == 'Home') {
       return <Home navigator={navigator} {...route.passProps} />
     }
@@ -29,15 +64,26 @@ export default class Moim extends Component {
     if (route.name == 'Vote') {
       return <Vote navigator={navigator} {...route.passProps} />
     }
+    if (route.name == 'Login') {
+      console.log("INININ")
+      return <Login navigator={navigator} {...route.passProps} />
+    }
   }
 
   render() {
-    return (
-      <Navigator
-        style={{ flex: 1 }}
-        initialRoute={{ name: 'Home' }}
-        renderScene={ this.renderScene } />
-    );
+    if (this.state.userLoaded) {
+      console.log(this.state.initialView)
+      console.log(this)
+      console.log(this.renderScene)
+      return (
+        <Navigator
+          style={{ flex: 1 }}
+          initialRoute={{ name: this.state.initialView }}
+          renderScene={ this.renderScene } />
+      );
+    } else {
+      return null;
+    }
   }
 }
 

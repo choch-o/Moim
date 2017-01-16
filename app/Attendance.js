@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, TouchableHighlight, Button } from 'react-native';
+import { View, Text, TouchableHighlight, Button, StyleSheet } from 'react-native';
 
 import GeolocationExample from './GeolocationExample'
 
@@ -97,23 +97,15 @@ export default class Attendance extends Component {
 
 
   render() {
-    const checkStyle = {
-      flex: 8,
-      backgroundColor: 'pink',
-      alignSelf: 'stretch',
-      justifyContent: 'center',
-      marginLeft: 50,
-      marginRight: 50,
-      marginTop: 200,
-      marginBottom: 200
-    }
     var checkButton;
     if (this.state.isNearby) {
       if (this.state.checked) {
         checkButton = <Text style={{ textAlign: 'center' }}>CHECKED</Text>
       }
       else {
-        checkButton = <Button title='CHECK' onPress={ this.onCheckPressed }></Button>
+        checkButton = <TouchableHighlight onPress={ this.onCheckPressed }>
+          <Text style={ styles.textStyle }>CHECK</Text>
+        </TouchableHighlight>
       }
     } else {
       checkButton = <Text style={{ textAlign: 'center' }}>NOT AVAILABLE</Text>
@@ -126,13 +118,30 @@ export default class Attendance extends Component {
           onPress={ () => this.props.navigator.pop() } >
           <Text style={{ padding: 40 }}>Back</Text>
         </TouchableHighlight>
-        <View style={ checkStyle }>
+        <Text style={{ flex: 1 }}>2017.01.18 정모</Text>
+        <View style={ styles.checkButton }>
           { checkButton }
         </View>
       </View>     
     );
   }
 }
+
+const styles = StyleSheet.create({
+  checkButton: {
+    flex: 3,
+    backgroundColor: 'pink',
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    marginLeft: 50,
+    marginRight: 50,
+    marginTop: 200,
+    marginBottom: 200
+  },
+  textStyle: {
+    textAlign: 'center',
+  }
+});
 
 Attendance.propTypes = {
   title: PropTypes.string.isRequired,
