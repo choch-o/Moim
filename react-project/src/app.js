@@ -4,24 +4,24 @@ import Header from './header';
 
 const divStyle = {
 
-		background: '#E0E0E0',
-				};
+  background: '#E0E0E0',
+};
 
 class App extends Component {
-	    render() {
-			        
-			return (
-			
-					<div style={divStyle}>
-	
-					<Header/>
+  render() {
 
-					{this.props.children}
+    return (
 
-					</div>
-				   );
+      <div style={divStyle}>
 
-		}
+        <Header/>
+
+        {this.props.children}
+
+      </div>
+    );
+
+  }
 }
 
 export default App;

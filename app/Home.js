@@ -53,12 +53,12 @@ export default class Home extends Component {
 	    	<View style={ styles.navbar }>
 	    		<Text style={ styles.userInfo }>{ this.state.nickname }</Text>
 		    	<TouchableHighlight style={ styles.logout } onPress={ this.logout }>
-		    		<Text style={ styles.logoutText }>logout</Text>
+		    		<Text style={ styles.logoutText }>LOGOUT</Text>
 		    	</TouchableHighlight>
 	    	</View>
 	    	<TouchableHighlight
 	    		style={ this.state.pressStatus ? styles.buttonPress : styles.lightblue }
-	    		onPress={ () => this._navigate('Attendance', 'Hello World') }>
+	    		onPress={ () => this._navigate('Meetings', 'from home') }>
 	    		<Text style={ styles.textStyle }>출석체크</Text>
 	    	</TouchableHighlight>
 	    	<TouchableHighlight

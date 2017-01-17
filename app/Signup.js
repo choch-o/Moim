@@ -38,8 +38,8 @@ export default class Signup extends Component {
 	}
 
 	setNickname() {
+		var c = this
 		var user = firebase.auth().currentUser;
-		console.log(Database.checkDuplicateNickname(this.state.nickname))
 		if (Database.checkDuplicateNickname(this.state.nickname)) {
 			this.setState({ duplicate: "Nickname already exists!" })
 		} else {
@@ -48,7 +48,7 @@ export default class Signup extends Component {
 			user.updateProfile({
 				displayName: this.state.nickname
 			}).then(function() {
-				this._navigate('Home', 'from signup')
+				c._navigate('Home', 'from signup')
 			}, function(error) {
 				console.error(error)
 			})

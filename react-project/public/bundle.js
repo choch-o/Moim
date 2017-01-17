@@ -77,15 +77,15 @@
 	var rootElement = document.getElementById('root');
 
 	_reactDom2.default.render(_react2.default.createElement(
-		_reactRouter.Router,
-		{ history: _reactRouter.browserHistory },
-		_react2.default.createElement(
-			_reactRouter.Route,
-			{ path: '/', component: _app2.default },
-			_react2.default.createElement(_reactRouter.IndexRoute, { component: _meeting_board2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'register_meeting', component: _register2.default }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'meeting/:id', component: _meeting_container2.default })
-		)
+	  _reactRouter.Router,
+	  { history: _reactRouter.browserHistory },
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: _app2.default },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _meeting_board2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'register_meeting', component: _register2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'meeting/:id', component: _meeting_container2.default })
+	  )
 	), document.getElementById('root'));
 
 	//ReactDOM.render(<Register />, rootElement);
@@ -26788,7 +26788,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-			value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -26811,32 +26811,32 @@
 
 	var divStyle = {
 
-			background: '#E0E0E0'
+	  background: '#E0E0E0'
 	};
 
 	var App = function (_Component) {
-			_inherits(App, _Component);
+	  _inherits(App, _Component);
 
-			function App() {
-					_classCallCheck(this, App);
+	  function App() {
+	    _classCallCheck(this, App);
 
-					return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-			}
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	  }
 
-			_createClass(App, [{
-					key: 'render',
-					value: function render() {
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
 
-							return _react2.default.createElement(
-									'div',
-									{ style: divStyle },
-									_react2.default.createElement(_header2.default, null),
-									this.props.children
-							);
-					}
-			}]);
+	      return _react2.default.createElement(
+	        'div',
+	        { style: divStyle },
+	        _react2.default.createElement(_header2.default, null),
+	        this.props.children
+	      );
+	    }
+	  }]);
 
-			return App;
+	  return App;
 	}(_react.Component);
 
 	exports.default = App;
@@ -26848,7 +26848,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -26864,54 +26864,54 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var MenuItem = function MenuItem(_ref) {
-		var active = _ref.active,
-		    children = _ref.children,
-		    link = _ref.link;
-		return _react2.default.createElement(
-			'div',
-			{ className: _header2.default.menu_item },
-			_react2.default.createElement(
-				_reactRouter.Link,
-				{ to: link },
-				children
-			)
-		);
+	  var active = _ref.active,
+	      children = _ref.children,
+	      link = _ref.link;
+	  return _react2.default.createElement(
+	    'div',
+	    { className: _header2.default.menu_item },
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: link },
+	      children
+	    )
+	  );
 	};
 
 	var Header = function Header() {
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(
-				'div',
-				{ className: _header2.default.logo },
-				'sparcs'
-			),
-			_react2.default.createElement(
-				'div',
-				{ className: _header2.default.menu },
-				_react2.default.createElement(
-					MenuItem,
-					{ link: '/' },
-					'Meeting_schedule'
-				),
-				_react2.default.createElement(
-					MenuItem,
-					{ link: '/register_meeting' },
-					'Register'
-				),
-				_react2.default.createElement(
-					MenuItem,
-					null,
-					'Vote'
-				),
-				_react2.default.createElement(
-					MenuItem,
-					null,
-					'Attendance'
-				)
-			)
-		);
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'div',
+	      { className: _header2.default.logo },
+	      'sparcs'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: _header2.default.menu },
+	      _react2.default.createElement(
+	        MenuItem,
+	        { link: '/' },
+	        'Meeting_schedule'
+	      ),
+	      _react2.default.createElement(
+	        MenuItem,
+	        { link: '/register_meeting' },
+	        'Register'
+	      ),
+	      _react2.default.createElement(
+	        MenuItem,
+	        null,
+	        'Vote'
+	      ),
+	      _react2.default.createElement(
+	        MenuItem,
+	        null,
+	        'Attendance'
+	      )
+	    )
+	  );
 	};
 
 	exports.default = Header;
@@ -32000,7 +32000,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -32024,111 +32024,111 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var meeting_board = function (_React$Component) {
-		_inherits(meeting_board, _React$Component);
+	  _inherits(meeting_board, _React$Component);
 
-		function meeting_board(props) {
-			_classCallCheck(this, meeting_board);
+	  function meeting_board(props) {
+	    _classCallCheck(this, meeting_board);
 
-			var _this = _possibleConstructorReturn(this, (meeting_board.__proto__ || Object.getPrototypeOf(meeting_board)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (meeting_board.__proto__ || Object.getPrototypeOf(meeting_board)).call(this, props));
 
-			_this.state = {
-				meetings: [] };
-			_this.componentWillMount = _this.componentWillMount.bind(_this);
+	    _this.state = {
+	      meetings: [] };
+	    _this.componentWillMount = _this.componentWillMount.bind(_this);
 
-			return _this;
-		}
+	    return _this;
+	  }
 
-		_createClass(meeting_board, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				_axios2.default.post('/call_meeting_board', {}).then(function (response) {
-					var nextState = {};
-					console.log(response.data);
-					nextState['meetings'] = response.data;
-					this.setState(nextState);
-				}.bind(this)).catch(function (response) {
-					console.log(response);
-				});
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				console.log(this.state.meetings);
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'ul',
-						null,
-						this.state.meetings.map(function (given_meeting) {
+	  _createClass(meeting_board, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      _axios2.default.post('/call_meeting_board', {}).then(function (response) {
+	        var nextState = {};
+	        console.log(response.data);
+	        nextState['meetings'] = response.data;
+	        this.setState(nextState);
+	      }.bind(this)).catch(function (response) {
+	        console.log(response);
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      console.log(this.state.meetings);
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          this.state.meetings.map(function (given_meeting) {
 
-							return _react2.default.createElement(MeetingInfo, { meeting: given_meeting });
-						})
-					)
-				);
-			}
-		}]);
+	            return _react2.default.createElement(MeetingInfo, { meeting: given_meeting });
+	          })
+	        )
+	      );
+	    }
+	  }]);
 
-		return meeting_board;
+	  return meeting_board;
 	}(_react2.default.Component);
 
 	exports.default = meeting_board;
 
 	var MeetingInfo = function (_React$Component2) {
-		_inherits(MeetingInfo, _React$Component2);
+	  _inherits(MeetingInfo, _React$Component2);
 
-		function MeetingInfo(props) {
-			_classCallCheck(this, MeetingInfo);
+	  function MeetingInfo(props) {
+	    _classCallCheck(this, MeetingInfo);
 
-			var _this2 = _possibleConstructorReturn(this, (MeetingInfo.__proto__ || Object.getPrototypeOf(MeetingInfo)).call(this, props));
+	    var _this2 = _possibleConstructorReturn(this, (MeetingInfo.__proto__ || Object.getPrototypeOf(MeetingInfo)).call(this, props));
 
-			_this2.state = {
-				presentor: _this2.props.meeting['presentor'],
-				meeting_title: _this2.props.meeting['meeting_name'],
-				meeting_date: _this2.props.meeting['meeting_date'],
-				id: _this2.props.meeting['_id']
-			};
-			console.log(_this2.state.id);
-			return _this2;
-		}
+	    _this2.state = {
+	      presentor: _this2.props.meeting['presentor'],
+	      meeting_title: _this2.props.meeting['meeting_name'],
+	      meeting_date: _this2.props.meeting['meeting_date'],
+	      id: _this2.props.meeting['_id']
+	    };
+	    console.log(_this2.state.id);
+	    return _this2;
+	  }
 
-		_createClass(MeetingInfo, [{
-			key: 'render',
-			value: function render() {
+	  _createClass(MeetingInfo, [{
+	    key: 'render',
+	    value: function render() {
 
-				return _react2.default.createElement(
-					_reactRouter.Link,
-					{ to: "meeting/" + this.state.id },
-					_react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'span',
-							null,
-							'presentor: ',
-							this.state.presentor,
-							'\xA0'
-						),
-						_react2.default.createElement(
-							'span',
-							null,
-							'title: ',
-							this.state.meeting_title,
-							'\xA0'
-						),
-						_react2.default.createElement(
-							'span',
-							null,
-							'date: ',
-							this.state.meeting_date,
-							'\xA0'
-						)
-					)
-				);
-			}
-		}]);
+	      return _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: "meeting/" + this.state.id },
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'presentor: ',
+	            this.state.presentor,
+	            '\xA0'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'title: ',
+	            this.state.meeting_title,
+	            '\xA0'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'date: ',
+	            this.state.meeting_date,
+	            '\xA0'
+	          )
+	        )
+	      );
+	    }
+	  }]);
 
-		return MeetingInfo;
+	  return MeetingInfo;
 	}(_react2.default.Component);
 
 /***/ },
@@ -32269,7 +32269,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -32283,19 +32283,19 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Meeting_wrapper = function Meeting_wrapper(_ref) {
-		var children = _ref.children,
-		    date = _ref.date;
+	  var children = _ref.children,
+	      date = _ref.date;
 
-		return _react2.default.createElement(
-			'div',
-			{ className: 'meeting_wrapper' },
-			_react2.default.createElement(
-				'div',
-				{ className: _meeting_header2.default.Header },
-				date
-			),
-			children
-		);
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'meeting_wrapper' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: _meeting_header2.default.Header },
+	      date
+	    ),
+	    children
+	  );
 	};
 
 	exports.default = Meeting_wrapper;
@@ -32349,7 +32349,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -32365,26 +32365,26 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Navigate = function Navigate(_ref) {
-		var id = _ref.id,
-		    _onClick = _ref.onClick;
-		return _react2.default.createElement(
-			'div',
-			{ className: _navigator2.default.Navigate },
-			_react2.default.createElement(_semanticUiReact.Button, { color: 'teal', content: 'Previous', icon: 'angle left', labelPosition: 'left',
-				onClick: function onClick() {
-					return _onClick('PREV');
-				} }),
-			_react2.default.createElement(
-				'div',
-				{ className: _navigator2.default.Navigate_page_num },
-				id
-			),
-			_react2.default.createElement(_semanticUiReact.Button, { color: 'teal', content: 'Next', icon: 'angle right', labelPosition: 'right',
-				onClick: function onClick() {
-					return _onClick('NEXT');
-				},
-				className: _navigator2.default.Navigate_right_button })
-		);
+	  var id = _ref.id,
+	      _onClick = _ref.onClick;
+	  return _react2.default.createElement(
+	    'div',
+	    { className: _navigator2.default.Navigate },
+	    _react2.default.createElement(_semanticUiReact.Button, { color: 'teal', content: 'Previous', icon: 'angle left', labelPosition: 'left',
+	      onClick: function onClick() {
+	        return _onClick('PREV');
+	      } }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: _navigator2.default.Navigate_page_num },
+	      id
+	    ),
+	    _react2.default.createElement(_semanticUiReact.Button, { color: 'teal', content: 'Next', icon: 'angle right', labelPosition: 'right',
+	      onClick: function onClick() {
+	        return _onClick('NEXT');
+	      },
+	      className: _navigator2.default.Navigate_right_button })
+	  );
 	};
 
 	exports.default = Navigate;
@@ -69826,7 +69826,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -69840,22 +69840,22 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Meeting = function Meeting(_ref) {
-		var title = _ref.title,
-		    content = _ref.content;
-		return _react2.default.createElement(
-			'div',
-			{ className: _meeting2.default.meeting },
-			_react2.default.createElement(
-				'h1',
-				null,
-				title
-			),
-			_react2.default.createElement(
-				'p',
-				null,
-				content
-			)
-		);
+	  var title = _ref.title,
+	      content = _ref.content;
+	  return _react2.default.createElement(
+	    'div',
+	    { className: _meeting2.default.meeting },
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      title
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      content
+	    )
+	  );
 	};
 
 	exports.default = Meeting;
@@ -69909,7 +69909,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+			value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -69919,46 +69919,26 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Participants = function Participants(_ref) {
-		var participants = _ref.participants;
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(
-				'label',
-				null,
-				'Participants'
-			),
-			participants.map(function (name) {
-				return _react2.default.createElement(
-					'li',
+			var participants = _ref.participants;
+			return _react2.default.createElement(
+					'div',
 					null,
-					name
-				);
-			})
-		);
+					_react2.default.createElement(
+							'label',
+							null,
+							'Participants'
+					),
+					participants.map(function (name) {
+							return _react2.default.createElement(
+									'li',
+									null,
+									name
+							);
+					})
+			);
 	};
 
 	exports.default = Participants;
-
-	//({id, onClick}) => (
-	//		    
-	//		<div className={styles.Navigate}>
-	//		
-	//			<Button color='teal' content="Previous" icon="angle left" labelPosition="left" 
-	//			onClick={
-	//				() => onClick('PREV')
-	//			}/> 
-	//
-	//			<div className={styles.Navigate_page_num}>{id}</div>
-	//																										        
-	//			<Button color='teal' content="Next" icon="angle right" labelPosition="right" 
-	//			onClick={
-	//				() => onClick('NEXT')
-	//			}
-	//			className={styles.Navigate_right_button}/>
-	//		</div>
-	//
-	//		);
 
 /***/ }
 /******/ ]);
