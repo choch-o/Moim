@@ -2,18 +2,14 @@ import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableHighlight, Button, StyleSheet } from 'react-native';
 
 import GeolocationExample from './GeolocationExample'
+import * as firebase from 'firebase'
+import Database from './includes/firebase/database'
 
 export default class Attendance extends Component {
 
-  static get defaultProps() {
-    return {
-      title: 'Attendance'
-    };
-  }
-
   constructor(props) {
     super(props);
-  
+    this.props = props
     this.state = {
       initialPosition: 'unknown',
       lastPosition: 'unknown',
@@ -71,6 +67,7 @@ export default class Attendance extends Component {
     if (this.state.isNearby) {
       if (this.state.checked != true) {
         this.setState({ checked: true })
+        Database.addParticipant(this.props.name.mongo_id, firebase.auth().currentUser.displayName)
       }
     }
   }
@@ -81,18 +78,13 @@ export default class Attendance extends Component {
     var targetLat = parseFloat(this.state.targetLatitude).toFixed(3)
     var targetLong = parseFloat(this.state.targetLongitude).toFixed(3)
 
-    console.log(currLat)
-    console.log(currLong)
-    console.log(targetLat)
-    console.log(targetLong)
-
     if (!this.state.isNearby) {
       if (!isNaN(currLat) && !isNaN(currLong) && !isNaN(targetLat) && !isNaN(targetLong)) {
         if ((currLat == targetLat) && (currLong == targetLong)) {
           console.log("SET TRUE")
           this.setState({isNearby: true})
         }
-      } 
+      }
     }
   }
 
@@ -117,12 +109,15 @@ export default class Attendance extends Component {
         <View style={ styles.navbar }>
             <TouchableHighlight
             onPress={ () => this.props.navigator.pop() } >
-              <Text style={ styles.backText }>Back</Text>
+              <Text style={ styles.backText }>BACK</Text>
           </TouchableHighlight>
         </View>
         <View style={ styles.eventView }>
-          <Text style={ styles.textStyle }>
-            2017.01.18 정모
+          <Text style={ styles.title }>
+            { this.props.name.title }
+          </Text>
+          <Text style={ styles.time }>
+            { this.props.name.time }
           </Text>
         </View>
         <View style={ styles.checkButton }>
@@ -159,9 +154,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#ffeeee'
   },
-  textStyle: {
+  title: {
     textAlign: 'center',
     fontSize: 30,
+    fontWeight: '100',
+    marginBottom: 50
+  },
+  time: {
+    textAlign: 'center',
+    fontSize: 20,
     fontWeight: '100'
   },
   navbar: {
@@ -171,7 +172,3 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
 });
-
-Attendance.propTypes = {
-  title: PropTypes.string.isRequired,
-};

@@ -20,6 +20,7 @@ import Attendance from './Attendance';
 import Vote from './Vote';
 import Login from './Login';
 import Signup from './Signup';
+import Meetings from './Meetings';
 import Firebase from './includes/firebase/firebase';
 
 export default class Moim extends Component {
@@ -71,6 +72,9 @@ export default class Moim extends Component {
     if (route.name == 'Signup') {
       return <Signup navigator={navigator} {...route.passProps} />
     } 
+    if (route.name == 'Meetings') {
+      return <Meetings navigator={navigator} {...route.passProps} />
+    }
   }
 
   render() {
