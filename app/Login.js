@@ -50,8 +50,8 @@ export default class Login extends Component {
             });
 
             setTimeout(() => {
-            	this._navigate('Home', 'HOMEHOME')
-            }, 1500);
+            	this._navigate('Signup', 'SIGNUP')
+            }, 1000);
 
         } catch (error) {
             this.setState({
@@ -74,7 +74,7 @@ export default class Login extends Component {
 
             setTimeout(() => {
                 this._navigate('Home', 'HOMEHOME')
-            }, 1500);
+            }, 1000);
 
         } catch (error) {
             this.setState({
@@ -131,11 +131,7 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-
-    formGroup: {
-        padding: 50
-    },
-
+	
     title: {
         paddingBottom: 16,
         textAlign: "center",
