@@ -36,6 +36,7 @@ export default class register extends React.Component {
 			items: this.state.items 		
 		}).then(function(response){
 			console.log(response);
+			window.location.href = '/'; 
 		})
 		.catch(function(response) {
 			console.log(response);
@@ -66,7 +67,7 @@ export default class register extends React.Component {
 						<br /><br />
 						<input type ="text" name="meeting_name" placeholder="put the name of meeting" value={this.state.meeting_name} onChange={this.handleChange.bind(this)}/>
 						<br /><br />
-						<input type ="date" name="meeting_date" placeholder="put the date of meeting" value={this.state.meeting_date} onChange={this.handleChange.bind(this)}/>
+						<input type ="datetime-local" name="meeting_date" placeholder="put the date of meeting" value={this.state.meeting_date} onChange={this.handleChange.bind(this)}/>
 						<br/> <br/>
 						
 						<ul>
@@ -140,7 +141,7 @@ class ItemAdder extends React.Component{
 		return (
 			<div>
 				<input type="text" name="item_title" placeholder="put the title of the item" value={this.state.item_title} onChange={this.handleChange.bind(this)}/>	
-				<input type="text" name="item_content" placeholder="put the content of the item" value={this.state.item_content} onChange={this.handleChange.bind(this)}/>
+				<textarea name="item_content" placeholder="put the content of the item" value={this.state.item_content} onChange={this.handleChange.bind(this)}/>
 				<button onClick={this.handleClick.bind(this)}>Add</button>
 				</div>
 			

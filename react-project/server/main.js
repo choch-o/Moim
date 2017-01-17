@@ -60,7 +60,7 @@ app.get('/attendance/location/sparcs', function (req, res) {
 ////////////////////////////////////////////////////////
 
 app.post('/call_meeting_board',function(req,res){
-			Meeting.find(function(err, meetings){
+			Meeting.find({"ending": false},function(err, meetings){
 				if(err) return res.status(500).send({error: 'database failure'});
 				console.log(meetings);
 				res.json(meetings);
@@ -98,7 +98,7 @@ app.post('/register',
 			meeting.meeting_name = req.body['meeting_name'];
 			meeting.meeting_date = req.body['meeting_date'];
 			//var item_list = JSON.parse(req.body['items']);
-
+			meeting.ending = false;
 			var item_list = req.body['items'];
 			for (var i = 0; i < item_list.length; i++){
 				var item = new Item();
@@ -119,6 +119,8 @@ app.post('/register',
 					console.log("save_success");
 				}
 			});
+
+			res.send("success");
 
 				
 		});
