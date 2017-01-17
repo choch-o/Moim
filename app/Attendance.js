@@ -56,7 +56,8 @@ export default class Attendance extends Component {
   }
 
   getTargetLocation() {
-    return fetch('http://52.78.52.132:3000/attendance/location/n1')
+    // return fetch('http://52.78.52.132:3000/attendance/location/n1')
+    return fetch('http://52.79.155.110:3000/attendance/location/n1')
       .then((response) => response.json())
       .then((responseJson) => {
         return responseJson
@@ -100,47 +101,75 @@ export default class Attendance extends Component {
     var checkButton;
     if (this.state.isNearby) {
       if (this.state.checked) {
-        checkButton = <Text style={{ textAlign: 'center' }}>CHECKED</Text>
+        checkButton = <Text style={ styles.buttonText }>CHECKED</Text>
       }
       else {
         checkButton = <TouchableHighlight onPress={ this.onCheckPressed }>
-          <Text style={ styles.textStyle }>CHECK</Text>
+          <Text style={ styles.buttonText }>CHECK</Text>
         </TouchableHighlight>
       }
     } else {
-      checkButton = <Text style={{ textAlign: 'center' }}>NOT AVAILABLE</Text>
+      checkButton = <Text style={ styles.buttonText }>NOT AVAILABLE</Text>
     }
 
     return (
-      <View style={{ flex: 1, flexDirection: 'column' }} >
-        <TouchableHighlight
-          style={{ flex: 1 }}
-          onPress={ () => this.props.navigator.pop() } >
-          <Text style={{ padding: 40 }}>Back</Text>
-        </TouchableHighlight>
-        <Text style={{ flex: 1 }}>2017.01.18 정모</Text>
-        <View style={ styles.checkButton }>
-          { checkButton }
+      <View style={{ flex: 1 }} >
+        <View style={ styles.navbar }>
+            <TouchableHighlight
+            onPress={ () => this.props.navigator.pop() } >
+              <Text style={ styles.backText }>Back</Text>
+          </TouchableHighlight>
         </View>
+        <View style={ styles.eventView }>
+          <Text style={ styles.textStyle }>
+            2017.01.18 정모
+          </Text>
+        </View>
+        <View style={ styles.checkButton }>
+            { checkButton }
+        </View>
+        
       </View>     
     );
   }
 }
 
 const styles = StyleSheet.create({
+  backText: {
+    textAlign: 'left',
+    paddingLeft: 15,
+    fontSize: 18,
+    fontWeight: '100',
+    color: '#444444'
+  },
   checkButton: {
-    flex: 3,
+    flex: 4,
     backgroundColor: 'pink',
     alignSelf: 'stretch',
     justifyContent: 'center',
-    marginLeft: 50,
-    marginRight: 50,
-    marginTop: 200,
-    marginBottom: 200
+  },
+  buttonText: {
+    textAlign: 'center',
+    fontSize: 40,
+    fontWeight: '100',
+    color: 'white'
+  },
+  eventView: {
+    flex: 4,
+    justifyContent: 'center',
+    backgroundColor: '#ffeeee'
   },
   textStyle: {
     textAlign: 'center',
-  }
+    fontSize: 30,
+    fontWeight: '100'
+  },
+  navbar: {
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: 15,
+    flexDirection: 'row'
+  },
 });
 
 Attendance.propTypes = {

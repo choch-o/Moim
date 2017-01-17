@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, Button, StyleSheet, Navigator, TouchableHighlight} from 'react-native';
+import { View, Text, Button, StyleSheet, Navigator, TouchableHighlight } from 'react-native';
 import Attendance from './Attendance'
 
 import * as firebase from 'firebase'
@@ -9,10 +9,11 @@ export default class Home extends Component {
 	  super(props);
 	  this.state = {
 	  	pressStatus: false,
-	  	uid: ""
+	  	uid: "",
+	  	nickname: firebase.auth().currentUser.displayName
 	  };
 	  this.logout = this.logout.bind(this);
-	  console.log("OPEN")
+
 	}
 
 	_navigate(scene, name) {
@@ -27,7 +28,6 @@ export default class Home extends Component {
 	async logout() {
 		try {
 			await firebase.auth().signOut();
-			console.log("Logout")
 
 			this._navigate('Login', 'LOGOUT');
 		} catch (error) {
@@ -48,27 +48,23 @@ export default class Home extends Component {
 	}
 
 	render() {
-		const textStyle = {
-			fontSize: 60,
-			color: 'mintcream'
-		}
 	  return (
 	    <View style={{ flex: 1 }} >
 	    	<View style={ styles.navbar }>
-	    		<Text style={ styles.userInfo }>chocho</Text>
+	    		<Text style={ styles.userInfo }>{ this.state.nickname }</Text>
 		    	<TouchableHighlight style={ styles.logout } onPress={ this.logout }>
-		    		<Text style={ styles.logoutText }>LOGOUT</Text>
+		    		<Text style={ styles.logoutText }>logout</Text>
 		    	</TouchableHighlight>
 	    	</View>
 	    	<TouchableHighlight
 	    		style={ this.state.pressStatus ? styles.buttonPress : styles.lightblue }
 	    		onPress={ () => this._navigate('Attendance', 'Hello World') }>
-	    		<Text style={textStyle}>출석체크</Text>
+	    		<Text style={ styles.textStyle }>출석체크</Text>
 	    	</TouchableHighlight>
 	    	<TouchableHighlight
 	    		style={ this.state.pressStatus ? styles.buttonPress : styles.darkblue}
 	    		onPress={ () => this._navigate('Vote', 'Hello Voters') }>
-	    		<Text style={textStyle}>투표</Text>
+	    		<Text style={ styles.textStyle}>투표</Text>
 	    	</TouchableHighlight>
 	    </View>     
 	  );
@@ -76,6 +72,11 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+	textStyle: {
+		fontSize: 60,
+		color: 'mintcream',
+		fontWeight: '100'
+	},
 	buttonPress: {
 		flex: 4,
 		justifyContent: 'center',
@@ -104,7 +105,8 @@ const styles = StyleSheet.create({
 		flex: 6,
 		paddingLeft: 15,
 		fontSize: 18,
-		fontWeight: '100'
+		fontWeight: '100',
+		color: '#444444'
 	},
 	logout: {
 		flex: 4,
@@ -114,6 +116,7 @@ const styles = StyleSheet.create({
 		textAlign: 'right',
 		paddingRight: 15,
 		fontSize: 18,
-		fontWeight: '100'
+		fontWeight: '100',
+		color: '#444444'
 	}
 });
