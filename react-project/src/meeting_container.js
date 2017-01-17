@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Meeting_wrapper from './meeting_wrapper';
-import Navigate from "./navigate"
-import Meeting from "./meeting"
+import Navigate from "./navigate";
+import Meeting from "./meeting";
+import Participants from "./participants";
 
 class meeting_container extends Component {
 		
@@ -16,6 +17,9 @@ class meeting_container extends Component {
 				item_id: 1,
 				item_title: '',
 				item_content: '',
+				participants: [
+					"Dummy","Dummy2"
+				]
 			}
 
 		}
@@ -80,6 +84,7 @@ class meeting_container extends Component {
 					<Meeting_wrapper date={this.state.date}>
 						<Navigate id={this.state.item_id} onClick={this.handleNavigateClick.bind(this)} />
 						<Meeting title={this.state.item_title} content = {this.state.item_content}/>
+						<Participants participants = {this.state.participants}/>
 					</Meeting_wrapper>
 					 );
 

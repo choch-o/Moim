@@ -54,7 +54,12 @@ app.get('/attendance/location/sparcs', function (req, res) {
 	})) 
 })
 
-
+app.get('/attendance/meetings', function (req, res) {
+	res.setHeader('Content-Type', 'application/json');
+	Meeting.find({"ending": false}, function(err, meetings) {
+		res.send(JSON.stringify(meetings));
+	});
+})
 
 
 ////////////////////////////////////////////////////////
@@ -99,7 +104,10 @@ app.post('/register',
 			meeting.meeting_date = req.body['meeting_date'];
 			//var item_list = JSON.parse(req.body['items']);
 			meeting.ending = false;
+			meeting.position.push(req.body['position']['lat']);
+			meeting.position.push(req.body['position']['lng']);
 			var item_list = req.body['items'];
+			
 			for (var i = 0; i < item_list.length; i++){
 				var item = new Item();
 				var given_item = item_list[i];
@@ -109,6 +117,7 @@ app.post('/register',
 				item.item_content = given_item['item_content'];
 				meeting.items.push(item);
 			}
+
 			meeting.save(function(err,auc)
 				{if(err){
 					console.error(err);

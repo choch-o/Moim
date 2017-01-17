@@ -7,7 +7,8 @@ var meetingSchema = new Schema({
 				meeting_name: String,
 				meeting_date: Date,
 				items: [],
-				ending: Boolean
+				ending: Boolean,
+				position: []
 				    
 					});
  
