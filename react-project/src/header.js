@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './css/header.css';
+import { Link } from 'react-router';
 
-const MenuItem = ({active, children, to}) => (
+const MenuItem = ({active, children, link}) => (
 		<div className={styles.menu_item}>
-		
+			<Link to = {link}>
 			{children}
+			</Link>
 
 		</div>
 		)
@@ -22,9 +24,9 @@ const Header = () => {
 
 					<div className={styles.menu}>
 
-						<MenuItem>홈</MenuItem>
+						<MenuItem link="/">Meeting_schedule</MenuItem>
 
-						<MenuItem>Meeting_schedule</MenuItem>
+						<MenuItem link="/register_meeting">Register</MenuItem>
 
 						<MenuItem>Vote</MenuItem>
 						

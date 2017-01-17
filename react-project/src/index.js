@@ -11,7 +11,6 @@ ReactDOM.render(
 		<Router history={browserHistory}>
 		    
 			<Route path="/" component={App}>
-		
 				<IndexRoute component={Meeting_board}/>
 				<Route path="register_meeting" component={Register}/>
 				<Route path="meeting/:id" component={Meeting}/>
