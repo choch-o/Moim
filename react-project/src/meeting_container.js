@@ -4,11 +4,15 @@ import Meeting_wrapper from './meeting_wrapper';
 import Navigate from "./navigate";
 import Meeting from "./meeting";
 import Participants from "./participants";
-
+import * as firebase from 'firebase';
+import Firebase from "./firebase";
 class meeting_container extends Component {
 
 	constructor(props){
 		super(props);
+
+		Firebase.initialise();
+		
 		this.state = {
 			meeting_id: this.props.params.id,
 			meeting: [], 
@@ -73,6 +77,16 @@ class meeting_container extends Component {
 	}
 
 
+	componentDidMount(){
+		console.log("flagedasd");
+		firebase.database().ref('meetings').child(this.state.meeting_id)
+			.on('value',function(snapshot) {
+				
+			})
+		.catch((error) => {
+			console.log(error);
+		});
+	}
 
 	render() {
 

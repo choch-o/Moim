@@ -54,6 +54,17 @@ app.get('/attendance/location/sparcs', function (req, res) {
 	})) 
 })
 
+app.post('/attendance/location', function (req, res) {
+	res.setHeader('Content-Type', 'application/json');
+	Meeting.find({"_id": mongoose.mongo.ObjectId(req.body.mongo_id)}, function(err, meeting) {
+		console.log(meeting)
+		res.send(JSON.stringify({
+			latitude: meeting[0].position[0],
+			longitude: meeting[0].position[1]			
+		}));
+	});
+});
+
 app.get('/attendance/meetings', function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
 	Meeting.find({"ending": false}, function(err, meetings) {

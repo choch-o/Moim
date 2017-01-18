@@ -5,6 +5,8 @@ import App from './app';
 import Meeting_board from './meeting_board';
 import Meeting from './meeting_container'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import * as firebase from 'firebase';
+
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
@@ -18,9 +20,4 @@ ReactDOM.render(
 
   </Router>,
 
-  document.getElementById('root')
-
-
-);
-
-//ReactDOM.render(<Register />, rootElement);
+  document.getElementById('root'));
