@@ -61,14 +61,17 @@ export default class Home extends Component {
 	    		onPress={ () => this._navigate('Meetings', 'from home') }>
 	    		<Text style={ styles.textStyle }>출석체크</Text>
 	    	</TouchableHighlight>
-	    	<TouchableHighlight
-	    		style={ this.state.pressStatus ? styles.buttonPress : styles.darkblue}
-	    		onPress={ () => this._navigate('Vote', 'Hello Voters') }>
-	    		<Text style={ styles.textStyle}>투표</Text>
-	    	</TouchableHighlight>
+
 	    </View>     
 	  );
 	}
+	/*
+		<TouchableHighlight
+    		style={ this.state.pressStatus ? styles.buttonPress : styles.darkblue}
+    		onPress={ () => this._navigate('Vote', 'Hello Voters') }>
+    		<Text style={ styles.textStyle}>투표</Text>
+    	</TouchableHighlight>
+	*/
 }
 
 const styles = StyleSheet.create({
@@ -78,7 +81,7 @@ const styles = StyleSheet.create({
 		fontWeight: '100'
 	},
 	buttonPress: {
-		flex: 4,
+		flex: 8,
 		justifyContent: 'center',
 		padding: 20,
 		backgroundColor: 'skyblue'
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'steelblue'
 	},
 	lightblue: {
-		flex: 4,
+		flex: 8,
 		justifyContent: 'center',
 		padding: 20,
 		backgroundColor: 'powderblue'

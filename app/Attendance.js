@@ -52,10 +52,24 @@ export default class Attendance extends Component {
   }
 
   getTargetLocation() {
+    return fetch('http://52.79.155.110:3000/attendance/location', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        mongo_id: this.props.name.mongo_id
+      })
+    })
     // return fetch('http://52.78.52.132:3000/attendance/location/n1')
-    return fetch('http://52.79.155.110:3000/attendance/location/n1')
+    
       .then((response) => response.json())
       .then((responseJson) => {
+        console.log("Location Response")
+        console.log(responseJson)
+        console.log("Current location")
+        console.log(this.state.currentLatitude)
+        console.log(this.state.currentLongitude)
         return responseJson
       })
       .catch((error) => {
@@ -78,9 +92,15 @@ export default class Attendance extends Component {
     var targetLat = parseFloat(this.state.targetLatitude).toFixed(3)
     var targetLong = parseFloat(this.state.targetLongitude).toFixed(3)
 
+    console.log("UPDATE TEST")
+    console.log(targetLat)
+    console.log(targetLong)
+    console.log(currLat)
+    console.log(currLong)
     if (!this.state.isNearby) {
       if (!isNaN(currLat) && !isNaN(currLong) && !isNaN(targetLat) && !isNaN(targetLong)) {
-        if ((currLat == targetLat) && (currLong == targetLong)) {
+        if (((currLat - 0.001) <= targetLat) && ((currLat + 0.001) >= targetLat) && ((currLong - 0.001) <= targetLong)
+          && ((currLong + 0.001) >= targetLong)) {
           console.log("SET TRUE")
           this.setState({isNearby: true})
         }
