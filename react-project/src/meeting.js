@@ -6,7 +6,9 @@ const Meeting = ({title, content}) => (
 
     <h1>{title}</h1>
 
-    <p>{content}</p>
+	<p>{content.split('\n').map( line => {
+		            return (<span>{line}<br/></span>)
+						          })}</p>
 
   </div>
 );

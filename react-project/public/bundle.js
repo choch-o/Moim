@@ -26468,7 +26468,7 @@
 
 
 	// module
-	exports.push([module.id, ".register__wrapper___2KWpr{\n    display: inline-block;\n    width: 100%;\n    float: left;\n}\n.register__register___3ygId{\n    width: 60%;\n    height: 100%;\n    margin-right: 1rem;   \n}\n\n.register__map___1Zbo1{\n    width: 400px;\n    height: 400px;\n}\n", ""]);
+	exports.push([module.id, ".register__wrapper___2KWpr{\n    display: inline-block;\n    width: 100%;\n}\n.register__register___3ygId{\n    width: 500px;\n    height: 100%;\n    margin-left: 15%; \n    float: left;\n}\n\n.register__map___1Zbo1{\n    width: 400px;\n    height: 400px;\n    margin-right: 15%;\n    float: right;\n}\n", ""]);
 
 	// exports
 	exports.locals = {
@@ -70631,7 +70631,14 @@
 	    _react2.default.createElement(
 	      'p',
 	      null,
-	      content
+	      content.split('\n').map(function (line) {
+	        return _react2.default.createElement(
+	          'span',
+	          null,
+	          line,
+	          _react2.default.createElement('br', null)
+	        );
+	      })
 	    )
 	  );
 	};
