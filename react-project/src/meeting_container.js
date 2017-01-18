@@ -11,7 +11,6 @@ class meeting_container extends Component {
 	constructor(props){
 		super(props);
 
-		Firebase.initialise();
 		
 		this.state = {
 			meeting_id: this.props.params.id,
@@ -21,9 +20,7 @@ class meeting_container extends Component {
 			item_id: 1,
 			item_title: '',
 			item_content: '',
-			participants: [
-				"Dummy","Dummy2"
-			]
+			participants: []
 		}
 
 	}
@@ -81,11 +78,26 @@ class meeting_container extends Component {
 		console.log("flagedasd");
 		firebase.database().ref('meetings').child(this.state.meeting_id)
 			.on('value',function(snapshot) {
+				var parts = snapshot.val();
+				console.log(parts);
+				var str_parts = JSON.stringify(parts);
+				console.log(str_parts);
+				var temp_arr= str_parts.split(',');
+				console.log(temp_arr);
+				var new_parts = [];
+				for (var i=0;i<temp_arr.length;i++){
+					var temp_str = temp_arr[i];
+					console.log(temp_str);
+					new_parts.push(temp_str.split(':')[1].replace(/\"/g,'').replace(/}/g,'').replace(/{/g,''));
+				}
+				console.log('------------');
+				console.log(new_parts);
 				
-			})
-		.catch((error) => {
-			console.log(error);
-		});
+				var newState = {};
+				newState['participants'] = new_parts;
+				this.setState(newState);
+
+			}.bind(this));
 	}
 
 	render() {
