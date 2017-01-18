@@ -1,0 +1,15 @@
+.wrapper{
+    display: inline-block;
+    width: 100%;
+    float: left;
+}
+.register{
+    width: 60%;
+    height: 100%;
+    margin-right: 1rem;   
+}
+
+.map{
+    width: 400px;
+    height: 400px;
+}

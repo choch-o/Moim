@@ -3,38 +3,38 @@ import styles from './css/header.css';
 import { Link } from 'react-router';
 
 const MenuItem = ({active, children, link}) => (
-		<div className={styles.menu_item}>
-			<Link to = {link}>
-			{children}
-			</Link>
+  <div className={styles.menu_item}>
+    <Link to = {link}>
+      {children}
+    </Link>
 
-		</div>
-		)
+  </div>
+)
 
 const Header = () => {
-	    return (
-				        
-				<div>
-				
-					<div className={styles.logo}>
+  return (
 
-						sparcs
+    <div>
 
-					</div>
+      <div className={styles.logo}>
 
-					<div className={styles.menu}>
+        sparcs
 
-						<MenuItem link="/">Meeting_schedule</MenuItem>
+      </div>
 
-						<MenuItem link="/register_meeting">Register</MenuItem>
+      <div className={styles.menu}>
 
-						<MenuItem>Vote</MenuItem>
-						
-						<MenuItem>Attendance</MenuItem>
-					</div>
-					
-				</div>
-																																				    );
+        <MenuItem link="/">Meeting_schedule</MenuItem>
+
+        <MenuItem link="/register_meeting">Register</MenuItem>
+
+        <MenuItem>Vote</MenuItem>
+
+        <MenuItem>Attendance</MenuItem>
+      </div>
+
+    </div>
+  );
 };
 
 export default Header;
